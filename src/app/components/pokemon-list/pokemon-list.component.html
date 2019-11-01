@@ -1,0 +1,21 @@
+<div class="outside-container">
+  <div class="list-container" *ngIf="!(isLoading | async); else loading">
+    <div>
+      <app-pokemon-list-item
+        *ngFor="let pokemon of pokemonList$ | async"
+        [item]="pokemon"
+      ></app-pokemon-list-item>
+    </div>
+    <app-pagination
+      [activePage]="activePage"
+      [totalPages]="totalPages"
+      (changePage)="updatePage($event)"
+    ></app-pagination>
+  </div>
+
+  <ng-template #loading>
+    <app-loader></app-loader>
+  </ng-template>
+</div>
+
+

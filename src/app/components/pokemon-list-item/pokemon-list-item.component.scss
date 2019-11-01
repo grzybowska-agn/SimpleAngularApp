@@ -1,0 +1,12 @@
+@import "~src/styles/_colors.scss";
+
+a {
+  display: block;
+  cursor: pointer;
+  line-height: 1.5rem;
+  color: $font-color;
+  text-decoration: none;
+  &:hover {
+    color: $color-main;
+  }
+}

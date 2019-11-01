@@ -1,0 +1,24 @@
+@import "~src/styles/_colors.scss";
+
+.outside-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  max-width: 300px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.inside-container {
+  background-color: $color-light;
+  padding: 17px 14px;
+  border-radius: 5px;
+  min-height: 470px;
+}
+
+app-search-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

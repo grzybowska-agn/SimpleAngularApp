@@ -1,0 +1,34 @@
+@import "~src/styles/_colors.scss";
+
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.element {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page {
+  @extend .element;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.active {
+  background-color: $color-main;
+  color: $color-light;
+}
+
+.hidden {
+  display: none;
+}
+
+.disabled {
+  pointer-events: none;
+  color: $font-color-lighter;
+}

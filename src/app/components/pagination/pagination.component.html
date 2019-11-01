@@ -1,0 +1,31 @@
+<div class="pagination-container">
+  <div
+    class="page"
+    [class.disabled]="activePage === 1"
+    (click)="onPageChange(activePage - 1)"
+  >&lsaquo;</div>
+  <div class="pagination-container" [class.hidden]="activePage <= 3">
+    <div class="page" (click)="onPageChange(1)">1</div>
+    <div class="element">...</div>
+  </div>
+
+  <div
+    *ngFor="let page of pages"
+    class="page"
+    [class.active]="activePage === page"
+    (click)="onPageChange(page)"
+  >
+    {{ page }}
+  </div>
+
+  <div class="pagination-container" [class.hidden]="activePage > totalPages - 3">
+    <div class="element">...</div>
+    <div class="page" (click)="onPageChange(totalPages)">{{ totalPages }}</div>
+  </div>
+  <div
+    class="page"
+    [class.disabled]="activePage === totalPages"
+    (click)="onPageChange(activePage + 1)"
+  >&rsaquo;</div>
+</div>
+

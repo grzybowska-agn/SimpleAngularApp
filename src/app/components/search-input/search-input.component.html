@@ -1,0 +1,10 @@
+<input
+  [(ngModel)]="userInput"
+  type="number"
+  [placeholder]="placeholder"
+  (keydown.enter)="goToPokemon()"
+>
+<button
+  (click)="goToPokemon()"
+>Go</button>
+

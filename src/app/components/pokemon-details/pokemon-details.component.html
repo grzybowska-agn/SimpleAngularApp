@@ -1,0 +1,39 @@
+<div class="outside-container">
+  <a routerLink="/">&lsaquo; go back</a>
+
+  <div class="inside-container">
+    <div
+      class="nav"
+      [class.disable]="id === 1"
+      (click)="updateId(id - 1)"
+    >&lsaquo;</div>
+
+    <div *ngIf="!(isLoading | async); else loading">
+      <div *ngIf="(pokemon$ | async) as pokemon" class="pokemon-container">
+        <div class="image">
+          <img [src]="pokemon.sprites.front_default" />
+        </div>
+        <div class="name">{{ pokemon.name }}</div>
+        <div class="stats-container">
+          <div *ngFor="let item of pokemon.stats" class="stats">
+            <div>{{ item.stat.name }}</div>
+            <div>{{ item.base_stat }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <ng-template #loading>
+      <app-loader></app-loader>
+    </ng-template>
+
+    <div
+      class="nav"
+      [class.disable]="id === 100"
+      (click)="updateId(id + 1)"
+    >&rsaquo;</div>
+  </div>
+</div>
+
+
