@@ -8,21 +8,18 @@
       (click)="updateId(id - 1)"
     >&lsaquo;</div>
 
-    <div *ngIf="!(isLoading | async); else loading">
-      <div *ngIf="(pokemon$ | async) as pokemon" class="pokemon-container">
-        <div class="image">
-          <img [src]="pokemon.sprites.front_default" />
-        </div>
-        <div class="name">{{ pokemon.name }}</div>
-        <div class="stats-container">
-          <div *ngFor="let item of pokemon.stats" class="stats">
-            <div>{{ item.stat.name }}</div>
-            <div>{{ item.base_stat }}</div>
-          </div>
+    <div *ngIf="(pokemon$ | async) as pokemon; else loading" class="pokemon-container">
+      <div class="image">
+        <img [src]="pokemon.sprites.front_default" />
+      </div>
+      <div class="name">{{ pokemon.name }}</div>
+      <div class="stats-container">
+        <div *ngFor="let item of pokemon.stats" class="stats">
+          <div>{{ item.stat.name }}</div>
+          <div>{{ item.base_stat }}</div>
         </div>
       </div>
     </div>
-
 
     <ng-template #loading>
       <app-loader></app-loader>
