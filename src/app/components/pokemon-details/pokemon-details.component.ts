@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnDestroy,
+  OnInit
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { pluck } from 'rxjs/operators';
@@ -25,6 +31,7 @@ export class PokemonDetailsComponent implements OnInit, OnDestroy {
     private loaderService: LoaderService,
     private route: ActivatedRoute,
     private router: Router,
+    private changeDetector: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -40,6 +47,7 @@ export class PokemonDetailsComponent implements OnInit, OnDestroy {
       pluck('id')
     ).subscribe(id => {
       this.id = parseInt(id, 10);
+      this.changeDetector.markForCheck();
       this.getPokemon();
     });
   }
