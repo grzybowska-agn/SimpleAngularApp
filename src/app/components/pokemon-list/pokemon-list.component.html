@@ -1,8 +1,8 @@
 <div class="outside-container">
-  <div class="list-container" *ngIf="!(isLoading | async); else loading">
+  <div class="list-container" *ngIf="(pokemonList$ | async) as pokemonList; else loading">
     <div>
       <app-pokemon-list-item
-        *ngFor="let pokemon of pokemonList$ | async"
+        *ngFor="let pokemon of pokemonList"
         [item]="pokemon"
       ></app-pokemon-list-item>
     </div>

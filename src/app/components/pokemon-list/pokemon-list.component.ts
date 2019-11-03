@@ -1,9 +1,9 @@
 import { Component, ChangeDetectionStrategy, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, Subject, Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { pluck, map } from 'rxjs/operators';
 
-import { PokemonService, LoaderService } from '../../services';
+import { PokemonService } from '../../services';
 import { PokemonListItemRaw, PokemonListItem } from '../../app.model';
 
 @Component({
@@ -19,11 +19,8 @@ export class PokemonListComponent implements OnInit, OnDestroy {
 
   subscription: Subscription;
 
-  isLoading: Subject<boolean> = this.loaderService.isLoading;
-
   constructor(
     private pokeService: PokemonService,
-    private loaderService: LoaderService,
     private route: ActivatedRoute,
     private router: Router,
   ) {}

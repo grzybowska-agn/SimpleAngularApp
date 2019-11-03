@@ -1,1 +1,3 @@
-<div>{{ info }}</div>
+<div>
+  <div *ngIf="(shouldShowLoader$ | async)" class="loader"></div>
+</div>

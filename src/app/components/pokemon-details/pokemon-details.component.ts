@@ -6,10 +6,10 @@ import {
   OnInit
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, Subject, Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { pluck } from 'rxjs/operators';
 
-import { PokemonService, LoaderService } from '../../services';
+import { PokemonService } from '../../services';
 import { PokemonDetails } from '../../app.model';
 
 @Component({
@@ -24,11 +24,8 @@ export class PokemonDetailsComponent implements OnInit, OnDestroy {
 
   subscription: Subscription;
 
-  isLoading: Subject<boolean> = this.loaderService.isLoading;
-
   constructor(
     private pokeService: PokemonService,
-    private loaderService: LoaderService,
     private route: ActivatedRoute,
     private router: Router,
     private changeDetector: ChangeDetectorRef
